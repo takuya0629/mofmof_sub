@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @property.name %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @property.rent %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @property.age %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @property.content %>
+</p>
+
+<% n = 0 %>
+<% @property.nearests.each do |f| %>
+  
+  <h1><%= "最寄り駅#{n += 1}" %></h1>
+  <p>
+    <strong>路線名:</strong>
+    <%= f.route_name %>
+  </p>
+
+  <p>
+    <strong>駅名:</strong>
+    <%= f.station %>
+  </p>
+
+  <p>
+    <strong>徒歩分数:</strong>
+    <%= f.time %>
+  </p>
+<% end %>
+
+<%= link_to '編集', edit_property_path(@property) %> |
+<%= link_to '一覧へ', properties_path %>
