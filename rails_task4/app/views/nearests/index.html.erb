@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nearests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Route name</th>
+      <th>Station</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nearests.each do |nearest| %>
+      <tr>
+        <td><%= nearest.route_name %></td>
+        <td><%= nearest.station %></td>
+        <td><%= nearest.time %></td>
+        <td><%= link_to 'Show', nearest %></td>
+        <td><%= link_to 'Edit', edit_nearest_path(nearest) %></td>
+        <td><%= link_to 'Destroy', nearest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nearest', new_nearest_path %>
